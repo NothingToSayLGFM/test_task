@@ -1,5 +1,6 @@
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
+  target: "static",
   head: {
     title: "test_task",
     htmlAttrs: {
@@ -42,7 +43,10 @@ export default {
   },
 
   router: {
-    trailingSlash: false,
+    trailingSlash: true,
+  },
+  sitemap: {
+    trailingSlash: true,
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build

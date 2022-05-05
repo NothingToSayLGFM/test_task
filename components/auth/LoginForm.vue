@@ -16,7 +16,7 @@
         <ButtonLoader v-show="loading" />
         <span v-show="!loading">login</span>
       </button>
-      <nuxt-link to="signup" class="auth__form--forget"
+      <nuxt-link :to="{ name: 'signup' }" class="auth__form--forget"
         >Forgot Password?</nuxt-link
       >
     </form>
