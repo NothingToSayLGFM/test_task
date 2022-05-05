@@ -13,7 +13,6 @@ export default {
   components: { SignupForm, Header },
   name: "IndexPage",
   layout: "auth",
-  middleware: ["auth"],
 };
 </script>
 
