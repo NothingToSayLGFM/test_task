@@ -1,5 +1,5 @@
 export default function (context) {
-  if (context.$cookies.get("token")) {
+  if (context.app.$cookies.get("token")) {
     return context.redirect({ name: "index" });
   }
 }
