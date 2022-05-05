@@ -14,7 +14,7 @@ export default {
     try {
       await store.dispatch("auth/authByToken");
     } catch (e) {
-      redirect("/login/");
+      redirect({ name: "login" });
     }
   },
 };
