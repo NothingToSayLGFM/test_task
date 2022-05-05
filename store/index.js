@@ -1,5 +1,5 @@
 export const actions = {
-  async nuxtServerInit(_, { redirect }) {
+  nuxtServerInit(_, { redirect }) {
     if (this.$cookies.get("token")) {
       redirect({ name: "index" });
     } else {
