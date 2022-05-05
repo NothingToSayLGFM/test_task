@@ -1,7 +1,7 @@
 <template>
   <main class="main">
-    <div class="main-wrap" v-if="!loading">
-      <section class="projects" v-if="projects.length">
+    <div class="main-wrap" v-show="!loading">
+      <section class="projects" v-show="projects.length">
         <div
           class="project"
           v-for="item in projects"

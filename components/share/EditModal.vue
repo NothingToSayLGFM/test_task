@@ -1,8 +1,8 @@
 <template>
   <transition name="fade">
-    <div class="edit-modal-overlay" v-if="openModal">
+    <div class="edit-modal-overlay" v-show="openModal">
       <div class="edit-modal">
-        <div v-if="!loading">
+        <div v-show="!loading">
           <div class="edit-modal__field">
             <input placeholder="name" v-model="activeProjectName" />
           </div>
