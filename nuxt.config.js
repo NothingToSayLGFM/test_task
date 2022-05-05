@@ -42,9 +42,6 @@ export default {
     scss: ["./assets/global/*.scss"],
   },
 
-  router: {
-    middleware: "trailingSlashRedirect",
-  },
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
 };
