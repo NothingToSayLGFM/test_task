@@ -9,12 +9,8 @@
 import Header from "../components/Header.vue";
 export default {
   components: { Header },
-  async asyncData({ store, redirect }) {
-    try {
-      await store.dispatch("auth/authByToken");
-    } catch (e) {
-      redirect("/login");
-    }
+  async asyncData({ store }) {
+    await store.dispatch("auth/authByToken");
   },
 };
 </script>

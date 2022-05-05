@@ -34,7 +34,7 @@ export default {
   ],
 
   axios: {
-    baseURL: process.env.API_URL,
+    baseURL: "https://api.quwi.com/v2/",
   },
 
   styleResources: {
