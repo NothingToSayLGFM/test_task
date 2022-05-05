@@ -10,7 +10,6 @@ import Header from "../components/Header.vue";
 export default {
   name: "auth",
   components: { Header },
-  middleware: ["auth"],
 };
 </script>
 

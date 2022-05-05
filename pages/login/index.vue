@@ -13,6 +13,7 @@ export default {
   components: { LoginForm, Header },
   name: "login",
   layout: "auth",
+  middleware: ["auth"],
 };
 </script>
 
