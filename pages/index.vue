@@ -34,18 +34,18 @@ import EditModal from "../components/share/EditModal.vue";
 export default {
   data() {
     return {
-      loading: true,
+      loading: false,
       error: false,
       openModal: false,
       activeItemId: null,
     };
   },
   components: { DataLoader, EditModal },
-  async fetch({ store }) {
+  async mounted() {
     this.error = false;
     this.loading = true;
     try {
-      await store.dispatch("projects/getProjects");
+      await this.$store.dispatch("projects/getProjects");
     } catch (e) {
       this.error = true;
     }
@@ -61,6 +61,10 @@ export default {
     projects() {
       return this.$store.state.projects.projectsData;
     },
+  },
+  beforeDestroy() {
+    this.$store.commit("projects/SET_PROJECTS", []);
+    this.$store.commit("projects/SET_ACTIVE_PROJECT", null);
   },
 };
 </script>
