@@ -43,8 +43,7 @@ export default {
   },
 
   router: {
-    trailingSlash: false,
-    mode: "history",
+    middleware: "trailingSlashRedirect",
   },
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
