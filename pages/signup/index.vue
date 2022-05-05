@@ -7,11 +7,11 @@
 </template>
 
 <script>
-import SignupForm from "../components/auth/SignupForm.vue";
-import Header from "../components/Header.vue";
+import SignupForm from "../../components/auth/SignupForm.vue";
+import Header from "../../components/Header.vue";
 export default {
   components: { SignupForm, Header },
-  name: "IndexPage",
+  name: "signup",
   layout: "auth",
 };
 </script>

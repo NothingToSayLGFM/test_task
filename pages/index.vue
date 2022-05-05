@@ -28,13 +28,14 @@ import DataLoader from "../components/share/DataLoader.vue";
 import EditModal from "../components/share/EditModal.vue";
 
 export default {
+  layout: "default",
+  components: { DataLoader, EditModal },
   data() {
     return {
       openModal: false,
       activeItemId: null,
     };
   },
-  components: { DataLoader, EditModal },
   async asyncData({ store }) {
     try {
       await store.dispatch("projects/getProjects");
