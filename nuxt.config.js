@@ -1,6 +1,5 @@
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
-  target: "static",
   head: {
     title: "test_task",
     htmlAttrs: {
@@ -40,6 +39,10 @@ export default {
 
   styleResources: {
     scss: ["./assets/global/*.scss"],
+  },
+
+  router: {
+    trailingSlash: false,
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
