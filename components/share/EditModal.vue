@@ -18,7 +18,7 @@
             </button>
           </div>
         </div>
-        <div class="loader" v-else>
+        <div class="loader" v-show="loading">
           <DataLoader />
         </div>
       </div>

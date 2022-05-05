@@ -8,7 +8,7 @@
     <nav class="header__navbar">
       <div class="header__navbar--items">
         <nuxt-link v-show="!token" :to="link">{{ link }}</nuxt-link>
-        <div class="home-nav" v-else>
+        <div class="home-nav" v-show="token">
           <nuxt-link to="/">projects</nuxt-link>
           <button @click="logout" class="logout-btn">logout</button>
         </div>

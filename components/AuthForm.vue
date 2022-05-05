@@ -7,7 +7,7 @@
       </div>
       <div class="auth__form--fields">
         <input
-          v-show="actionType == 'signup'"
+          v-if="actionType == 'signup'"
           type="text"
           placeholder="name"
           v-model="name"
@@ -15,15 +15,15 @@
         <input type="email" placeholder="email" v-model="email" />
         <input type="password" placeholder="password" v-model="password" />
       </div>
-      <div class="auth-errors" v-show="error">
+      <div class="auth-errors" v-if="error">
         <span class="error">{{ error }}</span>
       </div>
       <button class="auth__form--submit" :disabled="loading">
-        <ButtonLoader v-show="loading" />
-        <span v-else>{{ buttonText }}</span>
+        <ButtonLoader v-if="loading" />
+        <span v-show="!loading">{{ buttonText }}</span>
       </button>
       <nuxt-link
-        v-show="actionType == 'login'"
+        v-if="actionType == 'login'"
         to="signup"
         class="auth__form--forget"
         >Forgot Password?</nuxt-link

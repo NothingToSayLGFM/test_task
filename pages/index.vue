@@ -14,9 +14,9 @@
           <p>{{ item.name }}</p>
         </div>
       </section>
-      <h2 v-else>Nothing Found</h2>
+      <h2 v-show="!projects.length">Nothing Found</h2>
     </div>
-    <div v-else class="loader">
+    <div v-show="loading" class="loader">
       <DataLoader />
     </div>
     <EditModal
