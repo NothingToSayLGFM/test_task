@@ -41,11 +41,11 @@ export default {
     };
   },
   components: { DataLoader, EditModal },
-  async mounted() {
+  async fetch({ store }) {
     this.error = false;
     this.loading = true;
     try {
-      await this.$store.dispatch("projects/getProjects");
+      await store.dispatch("projects/getProjects");
     } catch (e) {
       this.error = true;
     }
