@@ -42,13 +42,6 @@ export default {
     scss: ["./assets/global/*.scss"],
   },
 
-  router: {
-    trailingSlash: true,
-  },
-  sitemap: {
-    trailingSlash: true,
-  },
-
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
 };
