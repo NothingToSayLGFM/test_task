@@ -11,7 +11,6 @@ export default {
   name: "default",
   components: { Header },
   async asyncData({ store, redirect }) {
-    console.log(1);
     try {
       await store.dispatch("auth/authByToken");
     } catch (e) {
