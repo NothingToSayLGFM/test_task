@@ -33,6 +33,7 @@ export const actions = {
   },
   async authByToken({ commit }) {
     const res = await this.$axios.get("auth/init");
+    console.log(res);
     commit("SET_USER_DATA", res);
   },
 };

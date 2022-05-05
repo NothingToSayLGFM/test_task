@@ -1,24 +1,20 @@
 <template>
   <main class="main">
-    <div class="main-wrap" v-show="!loading">
-      <section class="projects" v-show="projects.length">
-        <div
-          class="project"
-          v-for="item in projects"
-          :key="item.id"
-          :data-id="item.id"
-          @click="toggleModal(item.id)"
-        >
-          <img :src="item.logo_url" />
-          <p>{{ item.is_active > 0 ? "active" : "no active" }}</p>
-          <p>{{ item.name }}</p>
-        </div>
-      </section>
-      <h2 v-show="!projects.length">Nothing Found</h2>
-    </div>
-    <div v-show="loading" class="loader">
-      <DataLoader />
-    </div>
+    <section class="projects" v-show="projects.length">
+      <div
+        class="project"
+        v-for="item in projects"
+        :key="item.id"
+        :data-id="item.id"
+        @click="toggleModal(item.id)"
+      >
+        <img :src="item.logo_url" />
+        <p>{{ item.is_active > 0 ? "active" : "no active" }}</p>
+        <p>{{ item.name }}</p>
+      </div>
+    </section>
+    <h2 v-show="!projects.length && !error">Nothing Found</h2>
+    <h2 v-show="error">Something went wrong, check internet connection</h2>
     <EditModal
       @toggleModal="toggleModal"
       :openModal="openModal"
@@ -34,22 +30,18 @@ import EditModal from "../components/share/EditModal.vue";
 export default {
   data() {
     return {
-      loading: false,
-      error: false,
       openModal: false,
       activeItemId: null,
     };
   },
   components: { DataLoader, EditModal },
-  async mounted() {
-    this.error = false;
-    this.loading = true;
+  async asyncData({ store }) {
     try {
-      await this.$store.dispatch("projects/getProjects");
+      await store.dispatch("projects/getProjects");
+      return { error: false };
     } catch (e) {
-      this.error = true;
+      return { error: true };
     }
-    this.loading = false;
   },
   methods: {
     toggleModal(id = null) {
@@ -62,10 +54,6 @@ export default {
       return this.$store.state.projects.projectsData;
     },
   },
-  beforeDestroy() {
-    this.$store.commit("projects/SET_PROJECTS", []);
-    this.$store.commit("projects/SET_ACTIVE_PROJECT", null);
-  },
 };
 </script>
 
@@ -76,19 +64,17 @@ export default {
     display: flex;
     justify-content: center;
   }
-  .main-wrap {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-  }
-
   h2 {
     text-align: center;
+    display: block;
+    width: 100%;
   }
   .projects {
     display: flex;
     justify-content: center;
     width: 100%;
+    flex-direction: column;
+    align-items: center;
     .project {
       display: flex;
       align-items: center;
@@ -100,7 +86,12 @@ export default {
       border-radius: 15px;
       overflow: hidden;
       padding: 15px;
+      min-height: 182px;
       cursor: pointer;
+      margin: 15px 0;
+      @media screen and (max-width: 662px) {
+        flex-direction: column;
+      }
     }
   }
 }

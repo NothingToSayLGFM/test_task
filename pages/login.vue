@@ -1,16 +1,16 @@
 <template>
   <div>
     <main>
-      <AuthForm actionType="login" />
+      <LoginForm />
     </main>
   </div>
 </template>
 
 <script>
-import AuthForm from "../components/AuthForm.vue";
+import LoginForm from "../components/auth/LoginForm.vue";
 import Header from "../components/Header.vue";
 export default {
-  components: { AuthForm, Header },
+  components: { LoginForm, Header },
   name: "IndexPage",
   layout: "auth",
 };

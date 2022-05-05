@@ -8,14 +8,14 @@
 <script>
 import Header from "../components/Header.vue";
 export default {
+  name: "auth",
   components: { Header },
-  fetch() {},
+  middleware: ["auth"],
 };
 </script>
 
 <style scoped lang="scss">
 .image-bg {
   background-image: url(https://quwi.com/img/backgrounds/gray_blur.png);
-  background-size: contain;
 }
 </style>
